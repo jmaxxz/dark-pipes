@@ -5,11 +5,15 @@
   "scripts": {
     "start": "node app.js"
   },
+  "devDependencies": {
+    "sqlite3":"*"
+  },
   "dependencies": {
     "express": "3.4.4",
     "jade": "*",
     "stylus": "*",
-    "sqlite3":"*",
-    "db-migrate":"*"
+    "db-migrate":"*",
+    "node-dbi":"*",
+    "pg":"2.x"
   }
 }

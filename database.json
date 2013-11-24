@@ -1,6 +1,10 @@
 {
   "dev": {
     "driver": "sqlite3",
-    "filename": "my.sqlite"
+    "filename": "data.dat"
+  },
+  "prod":{
+  	"driver": "postgresql",
+  	"native": true
   }
 }

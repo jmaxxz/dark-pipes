@@ -1,15 +1,26 @@
-
+/* global require, dbWrapper:true, process, console, __dirname*/
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var messages = require('./controllers/messages');
 var app = express();
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('my.sqlite');
+
+console.log('ENV:'+process.env.NODE_ENV);
+if(process.env.NODE_ENV === 'production') {
+	var pg = require('pg');
+	db = new pg.Client(process.env.DATABASE_URL);
+	db.connect(function(){});
+	da = require('./data_access/postgres.js')
+}
+else {
+	var sqlite3 = require('sqlite3').verbose();
+	db = new sqlite3.Database('data.dat');
+	da = require('./data_access/sqlite.js')
+}
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -29,10 +40,12 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', messages.index);
-app.post('/', messages.send);
+app.get('/:reciever', messages.index);
+app.get('/:reciever/utf8', messages.utf8);
+app.post('/:reciever', messages.send);
 
 
 http.createServer(app).listen(app.get('port'), function(){
+  'use strict';
   console.log('Express server listening on port ' + app.get('port'));
 });

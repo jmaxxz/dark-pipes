@@ -8,6 +8,8 @@ var http = require('http');
 var path = require('path');
 var messages = require('./controllers/messages');
 var app = express();
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('my.sqlite');
 
 // all environments
 app.set('port', process.env.PORT || 3000);

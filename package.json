@@ -10,10 +10,7 @@
   },
   "dependencies": {
     "express": "3.4.4",
-    "jade": "*",
-    "stylus": "*",
     "db-migrate":"*",
-    "node-dbi":"*",
     "pg":"2.x"
   }
 }

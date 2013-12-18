@@ -12,7 +12,7 @@ Q: Are drop's unique to one person?
 A: No, anyone can use any address.
 
 
-Q: Can the sender address be the same as the reciever?
+Q: Can the sender address be the same as the receiver?
 A: Absolutely.
 
 

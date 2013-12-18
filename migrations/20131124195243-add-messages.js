@@ -4,7 +4,7 @@ var type = dbm.dataType;
 exports.up = function(db, callback) {
   db.createTable('messages', {
     message: 'blob',
-    reciever: { type: 'string', length: 32 },
+    receiver: { type: 'string', length: 32 },
     sender: { type: 'string', length: 32 }
   }, callback);
 };

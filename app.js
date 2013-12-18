@@ -18,7 +18,8 @@ if(process.env.NODE_ENV === 'production') {
 else {
 	var sqlite3 = require('sqlite3').verbose();
 	db = new sqlite3.Database('data.dat');
-	da = require('./data_access/sqlite.js')
+	da = require('./data_access/sqlite.js');
+	app.use(express.errorHandler());
 }
 
 
@@ -31,14 +32,10 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
 
-app.get('/:reciever', messages.index);
-app.get('/:reciever/utf8', messages.utf8);
-app.post('/:reciever', messages.send);
+app.get('/:receiver', messages.index);
+app.get('/:receiver/utf8', messages.utf8);
+app.post('/:receiver', messages.send);
 
 
 http.createServer(app).listen(app.get('port'), function(){

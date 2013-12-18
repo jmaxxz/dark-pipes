@@ -3,12 +3,12 @@
 var getMessagesAs = function(encoding, req, res){
   'use strict';
   //Handle bad user inputs
-  if(!req.params.hasOwnProperty('reciever')){
+  if(!req.params.hasOwnProperty('receiver')){
     res.statusCode = 400;
-    return res.send('reciever must be specified');
+    return res.send('receiver must be specified');
   }
 
-  da.getMessages(req.params.reciever, function(result) {
+  da.getMessages(req.params.receiver, function(result) {
     if(result){
       var transformedResult=[], x, m, encoded;
       for(x in result) {
@@ -50,7 +50,7 @@ exports.send = function(req, res){
   }
 
   //Write to the database
-  da.sendMessage( {message:message, reciever:req.params.reciever, sender:null}, function () {
+  da.sendMessage( {message:message, receiver:req.params.receiver, sender:null}, function () {
     res.statusCode = 200;
     res.send('sent');
   }, function() {

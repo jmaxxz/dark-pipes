@@ -6,7 +6,14 @@
     "start": "node app.js"
   },
   "devDependencies": {
-    "sqlite3":"*"
+    "sqlite3":"*",
+    "jasmine-node":"*",
+    "grunt-cli":"*",
+    "grunt":"*",
+    "grunt-contrib-jshint":"*",
+    "grunt-contrib-jasmine":"*",
+    "grunt-contrib-watch":"*",
+    "grunt-lib-phantomjs":"*"
   },
   "dependencies": {
     "express": "3.4.4",

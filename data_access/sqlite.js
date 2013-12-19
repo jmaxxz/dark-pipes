@@ -3,7 +3,7 @@ exports.getMessages = function(receiver, success, error){
   db.all('SELECT message, sender FROM messages WHERE receiver=?', [receiver], function(err, result) {
     if(err){
       console.dir(err);
-      return error()
+      return error();
     }
     if(result){
       return success(result);
@@ -22,5 +22,5 @@ exports.sendMessage = function(m, success, error){
         }
         return success();
         
-	});
-}
+  });
+};

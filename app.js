@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production') {
 	var pg = require('pg');
 	db = new pg.Client(process.env.DATABASE_URL);
 	db.connect(function(){});
-	da = require('./data_access/postgres.js')
+	da = require('./data_access/postgres.js');
 }
 else {
 	var sqlite3 = require('sqlite3').verbose();

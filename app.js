@@ -10,16 +10,16 @@ var app = express();
 
 console.log('ENV:'+process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
-	var pg = require('pg');
-	db = new pg.Client(process.env.DATABASE_URL);
-	db.connect(function(){});
-	da = require('./data_access/postgres.js');
+  var pg = require('pg');
+  db = new pg.Client(process.env.DATABASE_URL);
+  db.connect(function(){});
+  da = require('./data_access/postgres.js');
 }
 else {
-	var sqlite3 = require('sqlite3').verbose();
-	db = new sqlite3.Database('data.dat');
-	da = require('./data_access/sqlite.js');
-	app.use(express.errorHandler());
+  var sqlite3 = require('sqlite3').verbose();
+  db = new sqlite3.Database('data.dat');
+  da = require('./data_access/sqlite.js');
+  app.use(express.errorHandler());
 }
 
 

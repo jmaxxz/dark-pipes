@@ -4,7 +4,7 @@
     "filename": "data.dat"
   },
   "prod":{
-  	"driver": "postgresql",
-  	"native": true
+    "driver": "postgresql",
+    "native": true
   }
 }

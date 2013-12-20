@@ -6,18 +6,20 @@
     "start": "node app.js"
   },
   "devDependencies": {
-    "sqlite3":"*",
-    "jasmine-node":"*",
-    "grunt-cli":"*",
-    "grunt":"*",
-    "grunt-contrib-jshint":"*",
-    "grunt-contrib-jasmine":"*",
-    "grunt-contrib-watch":"*",
-    "grunt-lib-phantomjs":"*"
+    "sqlite3": "*",
+    "jasmine-node": "*",
+    "grunt-cli": "*",
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-jasmine": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-lib-phantomjs": "*",
+    "grunt-express-server": "*",
+    "grunt-npm-install": "*"
   },
   "dependencies": {
     "express": "3.4.4",
-    "db-migrate":"*",
-    "pg":"2.x"
+    "db-migrate": "*",
+    "pg": "2.x"
   }
 }

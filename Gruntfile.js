@@ -23,12 +23,25 @@ var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js',
     },
     watch: {
       files: files,
-      tasks: ['jshint', 'jasmine:pivotal:build']
-    }
+      tasks: ['jshint', 'jasmine', 'express:dev']
+    },
+    express: {
+      dev: {
+        options: {
+          script: 'app.js',
+          node_env: 'development',
+          background: true,
+          spawn: false
+        }
+      }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.registerTask('default', ['jshint', 'jasmine']);
+  grunt.loadNpmTasks('grunt-npm-install');
+  grunt.loadNpmTasks('grunt-express-server');
+  grunt.registerTask('default', ['jshint', 'jasmine', 'express:dev', 'watch']);
+
 };

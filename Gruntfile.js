@@ -12,18 +12,15 @@ var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js',
         }
       }
     },
-    jasmine: {
-         pivotal: {
-         src: [],
-        options: {
-            specs: 'spec/*Spec.js',
-            helpers: 'spec/*Helper.js'
-          }
-        }
+    jasmine_node: {
+      specNameMatcher: ".*Spec", // load only specs containing specNameMatcher
+      projectRoot: "spec",
+      requirejs: false,
+      forceExit: true,
     },
     watch: {
       files: files,
-      tasks: ['jshint', 'jasmine', 'express:dev']
+      tasks: ['jshint', 'jasmine_node', 'express:dev']
     },
     express: {
       dev: {
@@ -37,11 +34,11 @@ var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js',
     },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-jasmine-node');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-npm-install');
   grunt.loadNpmTasks('grunt-express-server');
-  grunt.registerTask('default', ['jshint', 'jasmine', 'express:dev', 'watch']);
+  grunt.registerTask('default', ['jshint', 'jasmine_node', 'express:dev', 'watch']);
 
 };

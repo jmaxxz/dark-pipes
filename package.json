@@ -11,7 +11,7 @@
     "grunt-cli": "*",
     "grunt": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-jasmine": "*",
+    "grunt-jasmine-node": "*",
     "grunt-contrib-watch": "*",
     "grunt-lib-phantomjs": "*",
     "grunt-express-server": "*",

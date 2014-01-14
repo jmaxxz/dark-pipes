@@ -9,13 +9,14 @@
     "sqlite3": "*",
     "jasmine-node": "*",
     "grunt-cli": "*",
+    "grunt-express-server": "*",
+    "grunt-npm-install": "*",
     "grunt": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-jasmine-node": "*",
+    "grunt-contrib-jasmine": "*",
     "grunt-contrib-watch": "*",
     "grunt-lib-phantomjs": "*",
-    "grunt-express-server": "*",
-    "grunt-npm-install": "*"
+    "grunt-notify": "~0.2.17"
   },
   "dependencies": {
     "express": "3.4.4",

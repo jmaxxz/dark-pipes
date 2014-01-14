@@ -2,6 +2,14 @@ module.exports = function(grunt) {
 var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js','data_access/**/*.js','spec/**/*.js'];
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    notify:{
+      success:{
+        options:{
+          title:'Good job captain',
+          message:'everything is shiny'
+        }
+      }
+    },
     jshint: {
       files: files,
       options: {
@@ -12,15 +20,15 @@ var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js',
         }
       }
     },
-    jasmine_node: {
-      specNameMatcher: ".*Spec", // load only specs containing specNameMatcher
-      projectRoot: "spec",
-      requirejs: false,
-      forceExit: true,
-    },
-    watch: {
-      files: files,
-      tasks: ['jshint', 'jasmine_node', 'express:dev']
+    jasmine: {
+         pivotal: {
+         src: [],
+        options: {
+            keepRunner: true,
+            specs: 'spec/*Spec.js',
+            helpers: 'spec/*Helper.js'
+          }
+        }
     },
     express: {
       dev: {
@@ -32,13 +40,15 @@ var files = ['Gruntfile.js','app.js','controllers/**/*.js','migrations/**/*.js',
         }
       }
     },
+    watch: {
+      files: files,
+      tasks: ['jshint', 'jasmine', 'notify:success']
+    }
   });
 
-  grunt.loadNpmTasks('grunt-jasmine-node');
+  grunt.loadNpmTasks('grunt-notify');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-npm-install');
-  grunt.loadNpmTasks('grunt-express-server');
-  grunt.registerTask('default', ['jshint', 'jasmine_node', 'express:dev', 'watch']);
-
+  grunt.registerTask('default', ['jshint', 'jasmine', 'express:dev', 'notify:success']);
 };
